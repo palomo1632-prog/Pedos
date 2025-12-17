@@ -162,8 +162,9 @@ const App: React.FC = () => {
           </div>
         </main>
 
-        <footer className="mt-auto pb-6 opacity-60 font-bold text-xs uppercase tracking-widest">
-          Presión máxima garantizada
+        <footer className="mt-auto pb-6 opacity-60 font-bold text-xs uppercase tracking-widest flex flex-col items-center gap-2">
+          <div>Presión máxima garantizada</div>
+          <div className="text-[10px]">Creado para Lujan Bigo por Eugenio Bigo</div>
         </footer>
       </div>
 

@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const [activeSound, setActiveSound] = useState<SoundProfile>(SOUND_PROFILES[0]);
   const [pressure, setPressure] = useState(0); // 0.0 to 1.0
   const [particles, setParticles] = useState<Particle[]>([]);
-  
+
   const isPressingRef = useRef(false);
   const pressureRef = useRef(0);
   const requestRef = useRef<number>();
@@ -40,7 +40,7 @@ const App: React.FC = () => {
     } else {
       pressureRef.current = 0; // Reset instantly on release (visual pop handled in release)
     }
-    
+
     // Only update state if significantly changed to avoid too many re-renders, 
     // though React 18 handles this well.
     setPressure(pressureRef.current);
@@ -74,9 +74,9 @@ const App: React.FC = () => {
   const handlePressEnd = () => {
     if (!isPressingRef.current) return;
     isPressingRef.current = false;
-    
+
     const finalPressure = pressureRef.current;
-    
+
     // Play Sound
     const pitch = BASE_PITCH + (finalPressure * (MAX_PITCH_MULTIPLIER - 1));
     audioEngine.play(activeSound.id, pitch);
@@ -84,7 +84,7 @@ const App: React.FC = () => {
     // Spawn Particles (Brutalist Smoke)
     const particleCount = 5 + Math.floor(finalPressure * 10);
     const newParticles: Particle[] = [];
-    
+
     // Center of screen
     const cx = window.innerWidth / 2;
     const cy = window.innerHeight / 3; // Approx button center
@@ -119,25 +119,25 @@ const App: React.FC = () => {
   return (
     <div className="bg-yellow-500 min-h-screen w-full overflow-hidden relative font-sans text-black">
       {/* Background Grid Pattern (Brutalist style) */}
-      <div 
-        className="absolute inset-0 opacity-10 pointer-events-none" 
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
-            backgroundImage: `linear-gradient(#000 2px, transparent 2px), linear-gradient(90deg, #000 2px, transparent 2px)`,
-            backgroundSize: '40px 40px'
+          backgroundImage: `linear-gradient(#000 2px, transparent 2px), linear-gradient(90deg, #000 2px, transparent 2px)`,
+          backgroundSize: '40px 40px'
         }}
       />
-      
+
       {/* Dynamic Container that zooms */}
-      <div 
+      <div
         className="w-full min-h-screen flex flex-col items-center pt-12 md:pt-20 transition-transform duration-75 ease-out will-change-transform"
-        style={{ 
+        style={{
           transform: `scale(${zoomScale})`,
           transformOrigin: 'center 30%' // Focus zoom on the button area
         }}
       >
         <header className="mb-12 text-center z-10">
           <h1 className="text-5xl md:text-7xl font-black bg-white inline-block px-4 py-2 brutal-border brutal-shadow transform -rotate-2">
-            GASMASTER
+            PEDOMASTER
           </h1>
           <div className="mt-2 text-xl font-bold bg-black text-white inline-block px-2 rotate-1">
             VER. 3.0
@@ -145,25 +145,25 @@ const App: React.FC = () => {
         </header>
 
         <main className="flex-1 w-full max-w-lg flex flex-col items-center relative z-20">
-          <MainButton 
+          <MainButton
             onPressStart={handlePressStart}
             onPressEnd={handlePressEnd}
             pressure={pressure}
           />
-          
+
           <div className="mt-12 w-full px-4">
-             <div className="bg-black text-white p-2 font-bold mb-2 text-center brutal-border border-white">
-                SELECTOR DE MUNICIÓN
-             </div>
-             <SoundSelector 
-                activeSoundId={activeSound.id}
-                onSelect={setActiveSound}
-             />
+            <div className="bg-black text-white p-2 font-bold mb-2 text-center brutal-border border-white">
+              SELECTOR DE MUNICIÓN
+            </div>
+            <SoundSelector
+              activeSoundId={activeSound.id}
+              onSelect={setActiveSound}
+            />
           </div>
         </main>
-        
+
         <footer className="mt-auto pb-6 opacity-60 font-bold text-xs uppercase tracking-widest">
-            Presión máxima garantizada
+          Presión máxima garantizada
         </footer>
       </div>
 

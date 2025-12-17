@@ -7,7 +7,7 @@ export const SOUND_PROFILES: SoundProfile[] = [
     color: 'bg-yellow-400',
     description: 'IMPACTO SECO',
     // Using a reverb/impact heavy fart for PUM
-    url: 'https://www.myinstants.com/media/sounds/fart-with-reverb.mp3'
+    url: '/sounds/pum.mp3'
   },
   { 
     id: SoundType.PRRR, 
@@ -15,7 +15,7 @@ export const SOUND_PROFILES: SoundProfile[] = [
     color: 'bg-green-400',
     description: 'CLÁSICO ROTO',
     // Classic ripping sound
-    url: 'https://www.myinstants.com/media/sounds/fart-1.mp3'
+    url: '/sounds/prrr.mp3'
   },
   { 
     id: SoundType.FIUUU, 
@@ -23,7 +23,7 @@ export const SOUND_PROFILES: SoundProfile[] = [
     color: 'bg-cyan-400',
     description: 'SILBIDO LETAL',
     // Short squeak
-    url: 'https://www.myinstants.com/media/sounds/quick-fart.mp3'
+    url: '/sounds/fiuuu.mp3'
   },
   { 
     id: SoundType.SPLAT, 
@@ -31,7 +31,7 @@ export const SOUND_PROFILES: SoundProfile[] = [
     color: 'bg-rose-400',
     description: 'HÚMEDO',
     // Wet sound
-    url: 'https://www.myinstants.com/media/sounds/wet-fart_1.mp3'
+    url: '/sounds/splat.mp3'
   },
 ];
 

@@ -1,6 +1,6 @@
 {
-  "name": "GASMASTER 3000",
-  "short_name": "GASMASTER",
+  "name": "PedoMaster",
+  "short_name": "PedoMaster",
   "description": "Simulador de gases de alta presión",
   "start_url": "/",
   "display": "standalone",
